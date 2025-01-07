@@ -3,17 +3,14 @@ name: 打怪兽
 on:
   workflow_dispatch:
 
-permissions:
-  content:read
-
 jobs:
   pyinstaller-build:
     runs-on:windows-latest
     steps:
-      -name:Create Executable
-       uses:sayyid5416/pyinstaller@v1
-       with:
-         python_ver:'3.12'
-         spec:'alien_invasion.py'
-         upload_exe_with_name:'alien_invasion'
-         options:--onlefile,--name"alien_invasion",--windowed
+      - name:Create Executable
+        uses:sayyid5416/pyinstaller@v1
+        with:
+          python_ver:'3.12'
+          spec:'alien_invasion.py'
+          upload_exe_with_name:'alien_invasion'
+          options:--onlefile,--name"alien_invasion",--windowed
