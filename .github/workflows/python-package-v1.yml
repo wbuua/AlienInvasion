@@ -1,0 +1,45 @@
+name: Python Build and Package
+
+on:
+  push:
+    branches:
+      - main  # 你可以更改为你自己的默认分支
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest  # 使用 Windows 环境
+
+    steps:
+      # 获取代码
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # 设置 Python 环境
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # 使用你项目所需的 Python 版本
+
+      # 安装依赖
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # 安装你的项目依赖
+          
+      # 安装 PyInstaller
+      - name: Install PyInstaller
+        run: pip install pyinstaller
+
+      # 打包 Python 项目为 Windows 可执行文件
+      - name: Build Windows executable
+        run: pyinstaller --onefile alien_invasion.py  # 将 your_script.py 替换为你的主 Python 文件
+
+      # 上传构建的 .exe 文件作为构建产物
+      - name: Upload executable as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: your_project_executable  # 你可以自定义构建产物的名字
+          path: dist/alien_invasion.exe  # 这里是 PyInstaller 默认输出的路径
