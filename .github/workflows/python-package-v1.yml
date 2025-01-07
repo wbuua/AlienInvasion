@@ -1,12 +1,7 @@
 name: Python Build and Package
 
 on:
-  push:
-    branches:
-      - main  # 你可以更改为你自己的默认分支
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:  # 手动触发
 
 jobs:
   build:
@@ -21,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # 使用你项目所需的 Python 版本
+          python-version: '3.12'  # 使用你项目所需的 Python 版本
 
       # 安装依赖
       - name: Install dependencies
