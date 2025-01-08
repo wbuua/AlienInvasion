@@ -4,7 +4,7 @@
 #pygame.dispaly.set_mode()创建一个显示窗口, 返回一个surface对象
 #pygame.event.get() 检测事件，并返回一个列表，包含上一次被调用后所发生的所有事件
 #模块sys 提供游戏退出工具
-import sys
+
 import pygame
 from setting import Settings
 from ship import Ship
