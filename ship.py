@@ -8,7 +8,7 @@ class Ship:
 		self.ship_speed=0.5
 
 		#加载飞船图像并获取其外接矩形
-		self.image=pygame.image.load('C:\\python_work\\alien_invasion\\images\\ship.bmp')
+		self.image=pygame.image.load('images/ship.bmp')
 		self.rect=self.image.get_rect()
 
 		#对于每艘飞船，将其放在屏幕底部

@@ -4,7 +4,7 @@ class Bullet(Sprite):
 	'''创建管理子弹的类，从sprite创建子类'''
 	def __init__(self,ai):
 		super().__init__()
-		self.image=pygame.image.load('C:\\python_work\\alien_invasion\\images\\bullet.bmp')
+		self.image=pygame.image.load('images/bullet.bmp')
 		self.speed=0.3
 		self.screen=ai.screen
 		self.setting=ai.setting
