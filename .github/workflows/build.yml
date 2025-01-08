@@ -25,6 +25,10 @@ jobs:
         pip install pyinstaller
         if (Test-Path requirements.txt) { pip install -r requirements.txt }
 
+    - name: Copy image files to build directory
+      run: |
+        xcopy /E /I images\* %GITHUB_WORKSPACE%\dist\images
+
     - name: Package with PyInstaller
       run: |
         pyinstaller --onefile alien_invasion.py
